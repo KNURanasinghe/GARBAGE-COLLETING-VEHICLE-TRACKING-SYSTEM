@@ -1,25 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:jwt_decoder/jwt_decoder.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 import 'Screens/homepage.dart';
 import 'Screens/login.dart';
 import 'Screens/signUp.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   //user keep login for 1h
   SharedPreferences pref = await SharedPreferences.getInstance();
-  runApp( MyApp(token: pref.getString('token'),));
+  runApp(MyApp(
+    token: pref.getString('token'),
+  ));
 }
 
 class MyApp extends StatelessWidget {
   final token;
-  const MyApp({super.key,required this.token});
+  const MyApp({super.key, required this.token});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.

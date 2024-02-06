@@ -27,7 +27,7 @@ class _SignInPageState extends State<SignUpPage> {
       };
 
       var response = await http.post(
-          Uri.parse("http://192.168.8.111:3000/registration"),
+          Uri.parse("http://192.168.8.111:3000/garbage/registration"),
           headers: {"Content-type": "application/json"},
           body: jsonEncode(regBody));
 
